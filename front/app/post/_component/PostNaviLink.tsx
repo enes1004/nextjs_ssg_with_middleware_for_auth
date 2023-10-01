@@ -9,7 +9,9 @@ export type PostNaviLinkProps = {
 const PostNaviLink: React.FC<PostNaviLinkProps> = ({ title, author, id }) => {
   return (
     <Link href={`/post/${id}`}>
-      <h4>{title} #{id}</h4>
+      <h4>
+        {title} #{id}
+      </h4>
       <h6>by {author}</h6>
     </Link>
   );

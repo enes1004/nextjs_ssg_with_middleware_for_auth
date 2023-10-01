@@ -6,15 +6,25 @@ export default async function Home() {
     (res) => res.json(),
   );
 
-  return (<>
-    <h1>ポストホームページです</h1>
-    <div style={{display:'flex',padding:'10px',flexDirection:'column'}}>
+  return (
+    <>
+      <h1>ポストホームページです</h1>
+      <div
+        style={{ display: "flex", padding: "10px", flexDirection: "column" }}
+      >
         {links.map((link) => (
-          <div style={{margin:'10px',padding:'5px',backgroundColor:'#eeeeee'}} key={link.id}>
+          <div
+            style={{
+              margin: "10px",
+              padding: "5px",
+              backgroundColor: "#eeeeee",
+            }}
+            key={link.id}
+          >
             <PostNaviLink {...link} />
           </div>
         ))}
       </div>
     </>
-    )
+  );
 }
