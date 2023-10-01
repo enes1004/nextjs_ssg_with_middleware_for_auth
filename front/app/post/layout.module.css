@@ -1,0 +1,29 @@
+.navi {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+.flexBox {
+  height: 200px;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.naviItem {
+  width: 25%;
+  border: solid 1px;
+  padding: 20px;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  font-size: 24px;
+  background-color: aliceblue;
+}
