@@ -1,0 +1,1 @@
+# nextjs_ssg_with_middleware_for_auth
