@@ -1,7 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import data from "./data.json";
 
-export async function GET() {
+export async function GET(request:NextRequest) {
+  const searchParams = request.nextUrl.searchParams
+  const commentIds = searchParams.get('commentIds')
+
+  if(commentIds){
+    const commentIdsParsed = commentIds.split(',');
+    return NextResponse.json(data.filter((i)=>commentIdsParsed.includes(i.id.toString())).reverse())
+  }
   return NextResponse.json(data.reverse());
 }
 

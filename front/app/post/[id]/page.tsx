@@ -1,5 +1,6 @@
 import { API_HOST } from "@/config/api_host";
 import CSRCommentList from "../_component/CSRCommentList";
+import CSRCommentListByIdList from "../_component/CSRCommentListByIdList";
 
 type PostProps = {
   title: string;
@@ -24,6 +25,15 @@ export default async function Post({
     (res) => res.json(),
   );
   const { title, author, content } = data;
+
+  // SSG＋CSRのデモのため、変な対応
+  // コメントのidだけSSGで取って、CSRCommentListByIdListにて、内容データをCSRで取る
+  const commentIds = await fetch(`${API_HOST}/api/comment/${id}`).then(
+    (res) => res.json(),
+  ).then(
+    (data) => data.map(({ id }:{id:number}) => id ) 
+  );
+
   return (
     <>
       <h1>
@@ -31,7 +41,7 @@ export default async function Post({
       </h1>
       <h3>by {author}</h3>
       {content}
-      <CSRCommentList postId={id} />
+      <CSRCommentListByIdList commentIds={commentIds} />
     </>
   );
 }
