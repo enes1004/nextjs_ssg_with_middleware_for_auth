@@ -3,6 +3,19 @@ const nextConfig = {
     experimental: {
         appDir: true,
       },
+    //cors 
+    async headers() {
+      return [
+        {
+          source: '/api/:path*',
+          headers: [
+            { key: 'Access-Control-Allow-Credentials', value: 'true' },
+            { key: 'Access-Control-Allow-Origin', value: '*' },
+          ]
+        }
+      ];
+    }
+    
 }
 
 module.exports = nextConfig

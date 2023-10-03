@@ -5,14 +5,13 @@ export async function GET() {
   return NextResponse.json(data.reverse());
 }
 
-export type PostData = {
+export type CommentData = {
   id: number;
-  title: string;
   content: string;
   user_id: number;
+  post_id: number;
   created_at: string;
   updated_at: string;
-  author: string;
   user: {
     id: number;
     name: string;

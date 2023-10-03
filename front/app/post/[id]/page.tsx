@@ -1,4 +1,5 @@
 import { API_HOST } from "@/config/api_host";
+import CSRCommentList from "../_component/CSRCommentList";
 
 type PostProps = {
   title: string;
@@ -30,6 +31,7 @@ export default async function Post({
       </h1>
       <h3>by {author}</h3>
       {content}
+      <CSRCommentList postId={id} />
     </>
   );
 }
